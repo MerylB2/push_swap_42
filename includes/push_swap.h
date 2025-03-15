@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmetee-b <cmetee-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: asiatik <asiatik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 14:54:34 by cmetee-b          #+#    #+#             */
-/*   Updated: 2025/03/05 18:07:11 by cmetee-b         ###   ########.fr       */
+/*   Updated: 2025/03/15 23:15:24 by asiatik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 /*
 ** Gestion des erreurs
 */
+bool	is_valid_input(int ac, char **av);
 int		ft_error_checkdup(t_data *a);
 void	free_stack(t_data **stack);
 void	ft_errors(void);
@@ -41,8 +42,9 @@ t_data	**sort_stack_a(t_data **a, t_data **b);
 /*
 ** Fonctions du processus de l'algorithme principal : parsing
 */
-t_data	*ft_algo_first_parse(char **av);
+t_data	*ft_algo_first_parse(char *arg);
 t_data	*ft_algo_parse(int ac, char **av);
+t_data	*parse_args(int ac, char **av);
 
 /*
 ** Fonctions utilitaires
@@ -53,6 +55,9 @@ int		find_min_nb(t_data *stack);
 int		find_max_nb(t_data *stack);
 void	ft_lstadd_back_ps(t_data **stack, t_data *stack_new);
 void	free_str(char **lst);
+int     is_sign(char c);
+char	**ft_split_ps(char const *s, char c);
+void	free_split_ps(char **split);
 
 /*   */
 int		move_b_to_a(t_data *a, t_data *b);

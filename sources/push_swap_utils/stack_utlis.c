@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utlis.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmetee-b <cmetee-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: asiatik <asiatik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 19:29:36 by cmetee-b          #+#    #+#             */
-/*   Updated: 2025/02/25 19:21:09 by cmetee-b         ###   ########.fr       */
+/*   Updated: 2025/03/15 22:55:50 by asiatik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,19 @@ int	find_max_nb(t_data *stack)
 		stack = stack->next;
 	}
 	return (max);
+}
+
+void	free_split_ps(char **split)
+{
+	int	i;
+
+	i = 0;
+	if (!split)
+		return ;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }

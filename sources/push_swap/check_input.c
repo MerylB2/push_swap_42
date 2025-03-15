@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors_check.c                                     :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmetee-b <cmetee-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: asiatik <asiatik@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 12:12:24 by cmetee-b          #+#    #+#             */
-/*   Updated: 2025/02/25 21:17:23 by cmetee-b         ###   ########.fr       */
+/*   Updated: 2025/03/15 22:51:29 by asiatik          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ long	ft_atol(const char *str)
 			sign *= -1;
 		str++;
 	}
-	while (*str)
+	while (ft_isdigit(*str))
 	{
-		if (!ft_isdigit(*str))
-			ft_errors();
 		res = res * 10 + (*str - '0');
 		str++;
 	}
@@ -79,4 +77,9 @@ void	ft_errors(void)
 {
 	ft_printf("Error\n");
 	exit(1);
+}
+
+int	is_sign(char c)
+{
+	return (c == '+' || c == '-');
 }
